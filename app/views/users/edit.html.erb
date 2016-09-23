@@ -1,0 +1,34 @@
+<%= form_for(@user) do |f| %>
+
+    <p>
+      <%= f.label :email_id %>
+      <%= f.text_field :email_id %>
+    </p>
+    <p>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </p>
+
+    <% if session[:role] == "admin" %>
+        <p>
+          <%= f.label :password %>
+          <%= f.password_field :password, {:autocomplete =>"off"} %>
+        </p>
+
+        <p>
+          <%= f.label :role %>
+          <%= select_tag "user[role]", options_for_select(["user", "admin"], @user.role)%>
+        </p>
+    <% else %>
+        <%= link_to "Change Password", change_password_path %>
+    <% end %>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end%>

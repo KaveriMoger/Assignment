@@ -1,0 +1,17 @@
+<p class="err"><%= flash[:notice] if flash[:notice] %></p>
+
+<%= form_tag url_for(controller: :sessions, action: :create), method: :post do |f| %>
+
+    <div>
+      <p>Email</p>
+      <%= text_field_tag :email %>
+    </div>
+
+    <div>
+      <p>Password</p>
+      <%z= password_field_tag :password %>
+    </div>
+
+    <%= submit_tag 'Login' %>
+
+<% end %>

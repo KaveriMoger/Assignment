@@ -1,0 +1,15 @@
+<%= link_to 'New User', new_user_path %>
+<table>
+  <tr>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+  </tr>
+  <% @users.each do |user| %>
+      <tr>
+        <td><% link_to user.email,edit_user_path(user)%></td>
+        <td>user.first_name</td>
+        <td>user.last_name</td>
+      </tr>
+  <% end%>
+</table>
